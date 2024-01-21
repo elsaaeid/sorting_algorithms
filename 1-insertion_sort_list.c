@@ -7,7 +7,7 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *curr, *nex, *new, *temp;
+	listint_t *curr, *nex, *new, *tmp;
 
 	if (!list || !(*list) || !((*list)->next))
 		return;
@@ -25,10 +25,10 @@ void insertion_sort_list(listint_t **list)
 				*list = curr;
 			if (curr->next)
 				curr->next->prev = nex;
-			temp = curr->next;
+			tmp = curr->next;
 			curr->next = nex;
 			curr->prev = nex->prev;
-			nex->next = temp;
+			nex->next = tmp;
 			nex->prev = curr;
 			print_list(*list);
 			nex = curr->prev;
