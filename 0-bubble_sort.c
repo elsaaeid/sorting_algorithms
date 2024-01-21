@@ -29,7 +29,7 @@ void bubble_sort(int *array, size_t size)
 				swapped = true;
 				print_array(array, size);
 			}
-			i++
+			i++;
 		}
 		r--;
 	}
