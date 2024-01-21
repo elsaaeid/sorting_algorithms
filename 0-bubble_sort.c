@@ -5,6 +5,7 @@
  * sort algorithm
  * @array: array of integers to be sorted
  * @size: amount of elements in array
+ *
  */
 void bubble_sort(int *array, size_t size)
 {
