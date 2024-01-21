@@ -1,48 +1,40 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - sorts an array of integers in ascending order
- * using the Insertion sort algorithm
- * @list: pointer to head of linked listint_t
- *
+ * insertion_sort_list - sorts a doubly linked list of integers in ascending
+ * order using an insertion sort algorithm
+ * @list: doubly linked list of integers to be sorted
  */
-
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *head = NULL, *temp = NULL;
-	int a = 0, b = 0;
+	listint_t *curr, *nex, *new, *temp;
 
-	if (!list || !*list || !(*list)->next)
+	if (!list || !(*list) || !((*list)->next))
 		return;
-	head = *list;
-	while (head->next != NULL)
+
+	nex = (*list);
+	curr = (*list)->next;
+	while (curr)
 	{
-		if (head->n > head->next->n)
+		new = curr->next;
+		while (nex && curr->n < nex->n)
 		{
-			temp = head->next, head->next = head->next->next;
-			if (head->next != NULL)
-				head->next->prev = head;
-			temp->next = head, temp->prev = head->prev;
-			if (head->prev != NULL)
-				head->prev->next = temp;
-			if (head->prev == NULL)
-				*list = temp;
-			head->prev = temp, a = 1;
-			print_list(*list), b = 0;
-			while (temp->prev != NULL)
-			{
-				if (temp->n < temp->prev->n)
-				{
-					swap(temp, list);
-					b = 1;
-				}
-				if (b == 0)
-					temp = temp->prev;
-				b = 0;
-			}
+			if (nex->prev)
+				nex->prev->next = curr;
+			else
+				*list = curr;
+			if (curr->next)
+				curr->next->prev = nex;
+			temp = curr->next;
+			curr->next = nex;
+			curr->prev = nex->prev;
+			nex->next = temp;
+			nex->prev = curr;
+			print_list(*list);
+			nex = curr->prev;
 		}
-		if (a == 0)
-			head = head->next;
-		a = 0;
+		curr = new;
+		if (curr)
+			nex = curr->prev;
 	}
 }
