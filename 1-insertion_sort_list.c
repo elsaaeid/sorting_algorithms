@@ -14,10 +14,9 @@ void insertion_sort_list(listint_t **list)
 
 	nex = (*list);
 	curr = (*list)->next;
-	do{
+	do {
 		new = curr->next;
-		while (nex && curr->n < nex->n)
-		{
+		do {
 			if (nex->prev)
 				nex->prev->next = curr;
 			else
@@ -31,7 +30,7 @@ void insertion_sort_list(listint_t **list)
 			nex->prev = curr;
 			print_list(*list);
 			nex = curr->prev;
-		}
+		} while (nex && curr->n < nex->n);
 		curr = new;
 		if (curr)
 			nex = curr->prev;
