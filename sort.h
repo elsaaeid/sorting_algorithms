@@ -7,12 +7,12 @@
 #include <stddef.h>
 
 /**
- * enum bool_e - manual definition of booleans, in case C99 stdbool.h not
+ * enum _bool - manual definition of booleans, in case C99 stdbool.h not
  * available
  * @false: logical 0
  * @true: logical 1
  */
-typedef enum bool_e
+typedef enum _bool
 {
 	false = 0,
 	true
