@@ -31,4 +31,7 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 
 
+/* Prototypes for helper functions */
+void swap(int *a, int *b);
+
 #endif /* SORT_H */
