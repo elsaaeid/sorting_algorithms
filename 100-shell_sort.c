@@ -24,11 +24,11 @@ void shell_sort(int *array, size_t size)
 		{
 			tmp = array[i];
 			k = i;
-			while ((k > h - 1) && (tmp < array[k - h]))
+			do
 			{
 				array[k] = array[k - h];
 				k -= h;
-			}
+			}while ((k > h - 1) && (tmp < array[k - h]));
 			array[k] = tmp;
 			i++;
 		}
