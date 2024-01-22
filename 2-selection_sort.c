@@ -1,5 +1,16 @@
 #include "sort.h"
 
+/**
+ * Swap two elements in an array.
+ * @param xp Pointer to first element.
+ * @param yp Pointer to second element.
+ */
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
 
 /**
  * Selection sort algorithm.
